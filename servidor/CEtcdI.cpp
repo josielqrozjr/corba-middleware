@@ -34,12 +34,12 @@
 // Implementation skeleton constructor
 Search_i::Search_i ()
 {
+    id_ = "default";
 }
 
 // Implementation skeleton destructor
 Search_i::~Search_i ()
 {
-    id_ = "unique-object-id";
 }
 
 std::string Search_i::id ()

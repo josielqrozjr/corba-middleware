@@ -29,41 +29,46 @@
 #define CETCDI_VWIH8A_H_
 
 #include "CEtcdS.h"
+#include <map>
+#include <string>
 
 #if !defined (ACE_LACKS_PRAGMA_ONCE)
 #pragma once
 #endif /* ACE_LACKS_PRAGMA_ONCE */
 
-class  Search_i
-  : public virtual POA_Search
+class Search_i
+    : public virtual POA_Search
 {
 public:
-  // Constructor
-  Search_i ();
+    // Constructor
+    Search_i ();
 
-  // Destructor
-  virtual ~Search_i ();
+    // Destructor
+    virtual ~Search_i ();
 
-  virtual
-  std::string id ();
+    virtual
+    std::string id () const;  // Tornar o método id const
 
-  virtual
-  ::CORBA::Boolean put (
-    const std::string key,
-    const std::string value);
+    virtual
+    ::CORBA::Boolean put (
+        const std::string key,
+        const std::string value);
 
-  virtual
-  std::string get (
-    const std::string key);
+    virtual
+    std::string get (
+        const std::string key);
 
-  virtual
-  void del (
-    const std::string key);
+    virtual
+    void del (
+        const std::string key);
 
-  virtual
-  void shutdown (
-    const std::string password);
+    virtual
+    void shutdown (
+        const std::string password);
+
+private:
+    std::string id_ = "unique-object-id";  // Definir id com um valor inicial
+    std::map<std::string, std::string> table_;
 };
-
 
 #endif /* CETCDI_H_  */

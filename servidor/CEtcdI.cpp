@@ -30,6 +30,7 @@
 #include <stdexcept>
 #include "CEtcdI.h"
 
+extern ORB_var orb; // definido no arquivo servidor.cpp
 
 // Implementation skeleton constructor
 Search_i::Search_i ()

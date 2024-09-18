@@ -55,7 +55,6 @@ int main(int argc, char* argv[])
                 case 1: { // Ver ID do objeto
                     string object_id = etcd->id();
                     cout << "ID do objeto: " << object_id << endl;
-                    CORBA::string_free(object_id);  // Libera memória alocada
                     break;
                 }
                 case 2: { // Inserir ou atualizar chave
@@ -73,7 +72,6 @@ int main(int argc, char* argv[])
                     try {
                         string valor = etcd->get(chave.c_str());
                         cout << "Valor associado à chave '" << chave << "': " << valor << endl;
-                        CORBA::string_free(valor);  // Libera memória alocada
                     } catch (InvalidKey& e) {
                         cerr << "Erro: Chave '" << chave << "' não encontrada." << endl;
                     }

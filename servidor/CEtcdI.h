@@ -47,7 +47,7 @@ public:
     virtual ~Search_i ();
 
     virtual
-    std::string id () const;  // Tornar o método id const
+    std::string id ();
 
     virtual
     ::CORBA::Boolean put (
@@ -67,7 +67,7 @@ public:
         const std::string password);
 
 private:
-    std::string id_ = "unique-object-id";  // Definir id com um valor inicial
+    std::string id_;
     std::map<std::string, std::string> table_;
 };
 

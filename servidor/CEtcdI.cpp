@@ -86,7 +86,6 @@ void Search_i::shutdown (
 {
     if (password == "admin") {
         table_.clear();
-    } else {
-        throw CORBA::NO_PERMISSION();
+        orb->shutdown();
     }
 }

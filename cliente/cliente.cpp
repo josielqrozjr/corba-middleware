@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
                         char* valor = etcd->get(chave.c_str());
                         cout << "Valor associado à chave '" << chave << "': " << valor << endl;
                         CORBA::string_free(valor);  // Libera memória alocada
-                    } catch (EtcdModule::InvalidKey& e) {
+                    } catch (InvalidKey& e) {
                         cerr << "Erro: Chave '" << chave << "' não encontrada." << endl;
                     }
                     break;
@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
                     try {
                         etcd->del(chave.c_str());
                         cout << "Chave '" << chave << "' removida com sucesso." << endl;
-                    } catch (EtcdModule::InvalidKey& e) {
+                    } catch (InvalidKey& e) {
                         cerr << "Erro: Chave '" << chave << "' não encontrada." << endl;
                     }
                     break;

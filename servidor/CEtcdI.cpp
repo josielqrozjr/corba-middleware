@@ -87,6 +87,6 @@ void Search_i::shutdown (
     if (password == "admin") {
         table_.clear();
     } else {
-        throw std::runtime_error("Acesso não autorizado");
+        throw CORBA::NO_PERMISSION();
     }
 }

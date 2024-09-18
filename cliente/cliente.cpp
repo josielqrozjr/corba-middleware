@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
 
             switch(opcao) {
                 case 1: { // Ver ID do objeto
-                    char* object_id = etcd->id();
+                    string object_id = etcd->id();
                     cout << "ID do objeto: " << object_id << endl;
                     CORBA::string_free(object_id);  // Libera memória alocada
                     break;
@@ -71,7 +71,7 @@ int main(int argc, char* argv[])
                     cout << "Digite a chave a ser consultada: ";
                     cin >> chave;
                     try {
-                        char* valor = etcd->get(chave.c_str());
+                        string valor = etcd->get(chave.c_str());
                         cout << "Valor associado à chave '" << chave << "': " << valor << endl;
                         CORBA::string_free(valor);  // Libera memória alocada
                     } catch (InvalidKey& e) {

@@ -19,7 +19,7 @@ void mostrar_menu() {
     cout << "2. Inserir ou atualizar chave\n";
     cout << "3. Consultar valor de uma chave\n";
     cout << "4. Remover chave\n";
-    cout << "5. Sair\n";
+    cout << "5. Encerrar\n";
     cout << "Escolha uma opção: ";
 }
 
@@ -89,7 +89,15 @@ int main(int argc, char* argv[])
                     break;
                 }
                 case 5: // Sair
-                    cout << "Encerrando o programa..." << endl;
+                    cout << "Digite a senha: ";
+                    cin >> senha;
+                    try {
+                        etcd->shutdown(senha);
+                        cout << "Shutdown realizado com sucesso." << endl;
+			cout << "Encerrando o programa..." << endl;
+                    } catch (const std::exception& e) {
+                        cerr << "Erro ao tentar realizar o shutdown: " << e.what() << endl;
+                    }
                     break;
                 default:
                     cout << "Opção inválida. Tente novamente." << endl;

@@ -91,8 +91,7 @@ int main(int argc, char* argv[])
                 case 5: // Sair
                     cout << "Digite a senha: ";
                     cin >> senha;
-                    try {
-                        etcd->shutdown(senha);
+                    etcd->shutdown(senha);
                     break;
                 default:
                     cout << "Opção inválida. Tente novamente." << endl;

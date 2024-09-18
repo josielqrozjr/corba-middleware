@@ -1,0 +1,23 @@
+//
+// Interface 
+//
+//
+//
+//
+//
+//
+
+exception InvalidKey {};
+
+interface Search {
+
+	// Atributos
+	readonly attribute string id;
+
+	// Métodos
+	boolean put(in string key, in string value);
+	string get(in string key) raises (InvalidKey);
+	void del(in string key) raises (InvalidKey);
+	oneway void shutdown(in string password);
+
+};

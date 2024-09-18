@@ -39,11 +39,12 @@ Search_i::Search_i ()
 // Implementation skeleton destructor
 Search_i::~Search_i ()
 {
+    id_ = "unique-object-id";
 }
 
 std::string Search_i::id () const
 {
-    return id_("unique-object-id");
+    return id_;
 }
 
 ::CORBA::Boolean Search_i::put (

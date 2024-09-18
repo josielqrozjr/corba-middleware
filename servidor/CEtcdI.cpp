@@ -65,7 +65,7 @@ std::string Search_i::get (
     if (it != table_.end()) {
         return it->second;
     } else {
-        throw EtcdModule::InvalidKey();  // exceção gerada pelo IDL
+        throw InvalidKey();  // exceção gerada pelo IDL
     }
 }
 
@@ -76,7 +76,7 @@ void Search_i::del (
     if (it != table_.end()) {
         table_.erase(it);
     } else {
-        throw EtcdModule::InvalidKey();
+        throw InvalidKey();
     }
 }
 

@@ -91,7 +91,13 @@ int main(int argc, char* argv[])
                 case 5: // Sair
                     cout << "Digite a senha: ";
                     cin >> senha;
-                    etcd->shutdown(senha);
+                    try {
+                        etcd->shutdown(senha);
+                        cout << "Shutdown realizado com sucesso." << endl;
+			cout << "Encerrando o programa..." << endl;
+                    } catch (const std::exception& e) {
+                        cerr << "Erro ao tentar realizar o shutdown: " << e.what() << endl;
+                    }
                     break;
                 default:
                     cout << "Opção inválida. Tente novamente." << endl;

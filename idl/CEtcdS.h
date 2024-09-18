@@ -25,8 +25,8 @@
 // TAO_IDL - Generated from
 // /opt/ACE_wrappers/TAO/TAO_IDL/be/be_codegen.cpp:454
 
-#ifndef _TAO_IDL_CETCDS_TVKPOB_H_
-#define _TAO_IDL_CETCDS_TVKPOB_H_
+#ifndef _TAO_IDL_CETCDS_LGJGJZ_H_
+#define _TAO_IDL_CETCDS_LGJGJZ_H_
 
 
 #include "CEtcdC.h"

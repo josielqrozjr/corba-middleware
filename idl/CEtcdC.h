@@ -25,8 +25,8 @@
 // TAO_IDL - Generated from
 // /opt/ACE_wrappers/TAO/TAO_IDL/be/be_codegen.cpp:148
 
-#ifndef _TAO_IDL_CETCDC_CYPRDQ_H_
-#define _TAO_IDL_CETCDC_CYPRDQ_H_
+#ifndef _TAO_IDL_CETCDC_AZ8SZ0_H_
+#define _TAO_IDL_CETCDC_AZ8SZ0_H_
 
 
 #include /**/ "ace/config-all.h"

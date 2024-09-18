@@ -55,7 +55,7 @@ std::string Search_i::id ()
   const std::string key,
   const std::string value)
 {
-  auto result = table_.insert({ket, value});
+  auto result = table_.insert({key, value});
   if (!result.second) {
 	table_[key] = value;
 	return false;

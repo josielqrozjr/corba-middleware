@@ -34,6 +34,7 @@
 // Implementation skeleton constructor
 Search_i::Search_i ()
 {
+    : id_("unique-object-id")
 }
 
 // Implementation skeleton destructor

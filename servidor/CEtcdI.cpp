@@ -30,12 +30,6 @@
 #include <stdexcept>
 #include "CEtcdI.h"
 
-class InvalidKey : public std::exception {
-public:
-    const char* what() const noexcept override {
-        return "Chave Inválida";
-    }
-};
 
 // Implementation skeleton constructor
 Search_i::Search_i ()
@@ -71,7 +65,7 @@ std::string Search_i::get (
     if (it != table_.end()) {
         return it->second;
     } else {
-        throw InvalidKey();
+        throw EtcdModule::InvalidKey();  // exceção gerada pelo IDL
     }
 }
 
@@ -82,7 +76,7 @@ void Search_i::del (
     if (it != table_.end()) {
         table_.erase(it);
     } else {
-        throw InvalidKey();
+        throw EtcdModule::InvalidKey();
     }
 }
 
@@ -95,4 +89,3 @@ void Search_i::shutdown (
         throw std::runtime_error("Acesso não autorizado");
     }
 }
-

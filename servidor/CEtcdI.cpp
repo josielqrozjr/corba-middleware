@@ -31,10 +31,11 @@
 #include "CEtcdI.h"
 
 class InvalidKey : public std::exception {
-	const char * what() const noexcept override {
-		return "Chave Invalida";
-	}
-}
+public:
+    const char* what() const noexcept override {
+        return "Chave Inválida";
+    }
+};
 
 // Implementation skeleton constructor
 Search_i::Search_i ()
@@ -46,55 +47,52 @@ Search_i::~Search_i ()
 {
 }
 
-std::string Search_i::id ()
+std::string Search_i::id () const
 {
-  return id;
+    return id_;
 }
 
 ::CORBA::Boolean Search_i::put (
-  const std::string key,
-  const std::string value)
+    const std::string key,
+    const std::string value)
 {
-  auto result = table_.insert({key, value});
-  if (!result.second) {
-	table_[key] = value;
-	return false;
-  }
-  return true;
+    auto result = table_.insert({key, value});
+    if (!result.second) {
+        table_[key] = value;
+        return false;
+    }
+    return true;
 }
 
 std::string Search_i::get (
-  const std::string key)
+    const std::string key)
 {
-  auto it = table_.find(key);
-  if (it != table_.end()) {
-	return it->second;
-  } else {
-	throw InvalidKey();
-  }
+    auto it = table_.find(key);
+    if (it != table_.end()) {
+        return it->second;
+    } else {
+        throw InvalidKey();
+    }
 }
 
 void Search_i::del (
-  const std::string key)
+    const std::string key)
 {
-  auto it = table_.find(key);
-  if (it != table_.end()) {
-	table_.erase(it);
-  } else {
-	throw InvalidKey();
-  }
+    auto it = table_.find(key);
+    if (it != table_.end()) {
+        table_.erase(it);
+    } else {
+        throw InvalidKey();
+    }
 }
 
 void Search_i::shutdown (
-  const std::string password)
+    const std::string password)
 {
-  if (password == "admin") {
-	table_.clear();
-  } else {
-	throw std::runtime_error("Acesso nao autorizado");
-  }
+    if (password == "admin") {
+        table_.clear();
+    } else {
+        throw std::runtime_error("Acesso não autorizado");
+    }
 }
 
-private:
-	std::string id;
-	std::map<std::string, std::string> table_;

@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
         }
     
         int opcao = 0;
-        string chave, valor;
+        string chave, valor, senha;
 
         while (opcao != 5) {
             mostrar_menu();
